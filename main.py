@@ -5,8 +5,8 @@ from pywebio.output import *
 from pywebio.session import defer_call, info as session_info, run_async, run_js
 
 
-for i in range(15):
-    print('от души Валерий🥰')
+# for i in range(15):
+#     print('🥰')
 
 chat_msgs = []
 online_users = set()
@@ -24,8 +24,8 @@ async def main():
     nickname = await input("Войти в чат", required=True, placeholder="Ваше имя", validate=lambda n: "Такой ник уже используется!" if n in online_users or n == '📢' else None)
     online_users.add(nickname)
 
-    chat_msgs.append(('📢', f'`{nickname}` присоединился к чату!'))
-    msg_box.append(put_markdown(f'📢 `{nickname}` присоединился к чату'))
+    chat_msgs.append(('📢', f'`{nickname}` присоединился!'))
+    msg_box.append(put_markdown(f'📢 `{nickname}` присоединился'))
 
     refresh_task = run_async(refresh_msg(nickname, msg_box))
 
